@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="CatVision.Wpf.Views.MainDockView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:avalonDock ="https://github.com/Dirkster99/AvalonDock"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="zh"
+             lex:LocalizeDictionary.OutputMissingKeys="False"
+             lex:ResxLocalizationProvider.DefaultAssembly="CatVision.Wpf"
+             lex:ResxLocalizationProvider.DefaultDictionary="Langs"
+             xmlns:local="clr-namespace:CatVision.Wpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <avalonDock:DockingManager x:Name="dockManager"
+                                   AllowMixedOrientation="True"
+                                   AutoWindowSizeWhenOpened="True"
+                                   IsVirtualizingAnchorable="True"
+                                   IsVirtualizingDocument="True"
+                                   Background="Transparent">
+                <avalonDock:DockingManager.Theme>
+                    <Vs2013DarkTheme/>
+                </avalonDock:DockingManager.Theme>
+                <DockingManager.DocumentHeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0,0,4,0" Source="{Binding IconSource}" Height="14" Width="14" Stretch="Uniform"/>
+                            <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </DockingManager.DocumentHeaderTemplate>
+                <LayoutRoot PropertyChanged="LayoutRoot_PropertyChanged">
+                    <LayoutPanel Orientation="Horizontal">
+                        <!--右边栏：图像-->
+                        <LayoutDocumentPaneGroup Orientation="Horizontal">
+                            <LayoutDocumentPane x:Name="vision">
+                                <!--<LayoutDocument Title="cam1" CanClose="False" ContentId="Vision">
+                                    <TextBlock Text="相机1" TextAlignment="Center"/>
+                                </LayoutDocument>-->
+                            </LayoutDocumentPane>
+                        </LayoutDocumentPaneGroup>
+                        <!--左边栏：连接状态 & 实时数据-->
+                        <LayoutAnchorablePaneGroup Orientation="Vertical" DockMinWidth="120" DockWidth="320">
+                            <LayoutAnchorablePane DockHeight="160">
+                                <LayoutAnchorable>
+                                    <TextBlock Text="设备连接状态" TextAlignment="Center"/>
+                                </LayoutAnchorable>
+                            </LayoutAnchorablePane>
+                            <LayoutAnchorablePane>
+                                <LayoutAnchorable>
+                                    <TextBlock Text="数据" TextAlignment="Center"/>
+                                </LayoutAnchorable>
+                            </LayoutAnchorablePane>
+                        </LayoutAnchorablePaneGroup>
+                    </LayoutPanel>
+                    <!--右边隐藏栏：日志报警-->
+                    <LayoutRoot.RightSide>
+                        <LayoutAnchorSide>
+                            <LayoutAnchorGroup>
+                                <LayoutAnchorable  AutoHideMinWidth="350" Title="{lex:Loc Key=LogDock}"
+                                    ContentId="LogDock" Content="{x:Static local:LogView.Ins}">
+                                    <!--<TextBlock Text="log infomation" TextAlignment="Center"/>-->
+                                </LayoutAnchorable>
+                            </LayoutAnchorGroup>
+                        </LayoutAnchorSide>
+                    </LayoutRoot.RightSide>
+                </LayoutRoot>
+            </avalonDock:DockingManager>
+        </Grid>
+    </Grid>
+</UserControl>

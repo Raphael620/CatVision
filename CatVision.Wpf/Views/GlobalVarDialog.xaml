@@ -1,0 +1,59 @@
+﻿<mah:MetroWindow x:Class="CatVision.Wpf.Views.GlobalValDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:CatVision.Wpf.Views"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="zh"
+        lex:LocalizeDictionary.OutputMissingKeys="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="CatVision.Wpf"
+        lex:ResxLocalizationProvider.DefaultDictionary="Langs"
+            xmlns:vm="clr-namespace:CatVision.Wpf.ViewModel" 
+        mc:Ignorable="d"
+        Height="240" Width="280">
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <TextBlock Text="&#xf121;" VerticalAlignment="Center" Margin="5 0" FontWeight="Light" FontFamily="{DynamicResource FontAwesone}" FontSize="16"/>
+            <TextBlock Text="{lex:Loc Key=GlobalVar}" VerticalAlignment="Center" Margin="5 0" FontWeight="Light"/>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="2 2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4 4" HorizontalAlignment="Center">
+                <TextBlock Text="{lex:Loc Key=Type}" FontSize="15" Margin="4 0"/>
+                <ComboBox x:Name="cmbType" ItemsSource="{Binding TypeEnums}" Width="100"
+                          SelectedValue="{Binding Type}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4 4" HorizontalAlignment="Center">
+                <TextBlock Text="{lex:Loc Key=Address}" FontSize="15" Margin="4 0"/>
+                <TextBox x:Name="tbAddress" Width="100" Text="{Binding Address}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="4 4" HorizontalAlignment="Center">
+                <TextBlock Text="{lex:Loc Key=Value}" FontSize="15" Margin="4 0"/>
+                <TextBox x:Name="tbValue" Width="100" Text="{Binding mValue}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="4 4" HorizontalAlignment="Center">
+                <TextBlock Text="{lex:Loc Key=Record}" FontSize="15" Margin="4 0"/>
+                <TextBox x:Name="tbRecord" Width="100" Text="{Binding Record}"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2 2" HorizontalAlignment="Center">
+            <Button Content="{lex:Loc Key=Clear}" Command="{Binding HostCommand}" CommandParameter="Clear" FontSize="15" Margin="4 0"/>
+            <Button x:Name="btnConfirm" Content="{lex:Loc Key=Confirm}" Click="btnConfirm_Click" FontSize="15" Margin="4 0"/>
+            <Button x:Name="btnCancel" Content="{lex:Loc Key=Cancel}" Click="btnCancel_Click" FontSize="15" Margin="4 0"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,156 @@
+﻿<mah:MetroWindow x:Class="CatVision.Wpf.Views.ParaSetView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:codecompletion="clr-namespace:ICSharpCode.CodeCompletion;assembly=ICSharpCode.CodeCompletion"
+        xmlns:local="clr-namespace:CatVision.Wpf.Views"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="zh"
+        lex:LocalizeDictionary.OutputMissingKeys="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="CatVision.Wpf"
+        lex:ResxLocalizationProvider.DefaultDictionary="Langs"
+        xmlns:views="clr-namespace:CatVision.Wpf.Views"
+        xmlns:helper="clr-namespace:CatVision.Wpf.Helper"
+        xmlns:data="clr-namespace:CatVision.Wpf.Models.Data"
+        xmlns:cvt="clr-namespace:CatVision.Wpf.Converter"
+           xmlns:vm="clr-namespace:CatVision.Wpf.ViewModel"
+        mc:Ignorable="d"
+        Loaded="MetroWindow_Loaded"
+        Title="ParaSettingView" Height="500" Width="800">
+    <Window.DataContext>
+        <vm:ParaSetViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <cvt:Bool2VisibilityConverter x:Key="Bool2VisibilityConverter"/>
+            <cvt:Bool2ColorConverter x:Key="Bool2ColorConverter"/>
+            <data:UIConfig x:Key="uiConfig" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <TextBlock Text="&#xf085;" VerticalAlignment="Center" Margin="5 0" FontWeight="Light" FontFamily="{DynamicResource FontAwesone}" FontSize="16"/>
+            <TextBlock Text="{lex:Loc Key=ParaSetting}" VerticalAlignment="Center" Margin="5 0" FontWeight="Light"/>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <Grid Margin="1, 2">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <!---->
+        <Grid Grid.Row="0" Margin="2, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Vertical" Margin="2, 2">
+                    <!--new camera-->
+                    <StackPanel Orientation="Horizontal" Margin="2 2">
+                        <TextBlock Text="{lex:Loc Key=CameraName}" VerticalAlignment="Center" Margin="2 0"/>
+                        <TextBox Text="{Binding NewCamName}"  Width="60" Margin="2 0"/>
+                        <TextBlock Text="{lex:Loc Key=Alias}" VerticalAlignment="Center" Margin="2 0"/>
+                        <TextBox Text="{Binding NewCamAlias}" Width="60" Margin="2 0"/>
+                        <Button  Content="&#xf067;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 x:Name="btnAddCamName" ToolTip="{lex:Loc Key=AddCamName}" Command="{Binding AddCommand}" CommandParameter="AddCamName"/> 
+                    </StackPanel>
+                    <!--camera list-->
+                    <StackPanel Orientation="Horizontal" Margin="2, 2">
+                        <TextBlock Text="{lex:Loc Key=CameraName}" VerticalAlignment="Center" Margin="2 0"/>
+                        <ComboBox x:Name="cbCamParaList" Width="130" Height="25" BorderThickness="0 0 0 1" Margin="8 0" 
+                                  ItemsSource="{Binding CamParaList}" SelectedItem="{Binding CamPara}" SelectionChanged="cbCamParaList_SelectionChanged"
+                                  DisplayMemberPath="camera_name" SelectedIndex="{Binding CamIndex}"/>
+                        <Button  Content="&#xf1f8;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 x:Name="btDeleteCamName" ToolTip="{lex:Loc Key=DeleteCamName}" Command="{Binding AddCommand}" CommandParameter="DeleteCamName"/>
+                    </StackPanel>
+                    <!--camera addin-->
+                    <StackPanel Orientation="Horizontal" Margin="12, 2">
+                        <TextBlock Text="{lex:Loc Key=CameraAddinPara}" VerticalAlignment="Center" Margin="2 0"/>
+                        <Button Content="&#xf044;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                x:Name="btDeleteCamParaAddin" ToolTip="{lex:Loc Key=Edit}" Command="{Binding AddCommand}" CommandParameter="EditCamAddin"/>
+                    </StackPanel>
+                    <!--new product-->
+                    <StackPanel Orientation="Horizontal" Margin="12, 2">
+                        <TextBlock Text="{lex:Loc Key=ProductName}" VerticalAlignment="Center" Margin="2 0"/>
+                        <TextBox Text="{Binding NewProdName}"  Width="60" Margin="2 0"/>
+                        <TextBlock Text="{lex:Loc Key=Alias}" VerticalAlignment="Center" Margin="2 0"/>
+                        <TextBox Text="{Binding NewProdAlias}" Width="60" Margin="2 0"/>
+                        <Button  Content="&#xf067;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 Command="{Binding AddCommand}" CommandParameter="AddProductName" ToolTip="{lex:Loc Key=Add}"/>
+                    </StackPanel>
+                    <!--product list-->
+                    <StackPanel Orientation="Horizontal" Margin="12, 2">
+                        <TextBlock Text="{lex:Loc Key=ProductName}" VerticalAlignment="Center" Margin="2 0"/>
+                        <ComboBox x:Name="cbProdList" Width="130" Height="25" BorderThickness="0 0 0 1" Margin="8 0" 
+                                  ItemsSource="{Binding ProdParaList}" SelectedItem="{Binding ProdPara}" SelectedIndex="{Binding ProdIndex}"
+                                  DisplayMemberPath="prod_name" SelectionChanged="cbProdList_SelectionChanged"/>
+                        <Button  Content="&#xf1f8;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 Command="{Binding AddCommand}" CommandParameter="DeleteProductName" ToolTip="{lex:Loc Key=Delete}"/>
+                    </StackPanel>
+                    <!--product expo time-->
+                    <StackPanel Orientation="Horizontal" Margin="12, 2">
+                        <TextBlock Text="{lex:Loc Key=ExpoTime}" VerticalAlignment="Center" Margin="2 0"/>
+                        <!--<TextBox Text="{Binding ExpoTime}" x:Name="tbExpoTime" VerticalAlignment="Center" Margin="2 0"/>-->
+                        <hc:NumericUpDown x:Name="htbExpoTime" Width="120" Value="{Binding ExpoTime}" VerticalAlignment="Center" Margin="2 0"/>
+                    </StackPanel>
+                    <!--camera addin-->
+                    <StackPanel Orientation="Horizontal" Margin="12, 2">
+                        <TextBlock Text="{lex:Loc Key=AddinPara}" VerticalAlignment="Center" Margin="2 0"/>
+                        <Button Content="&#xf044;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                ToolTip="{lex:Loc Key=Edit}" Command="{Binding AddCommand}" CommandParameter="EditProductAddin"/>
+                    </StackPanel>
+                    <!--roi-->
+                    <!--roi list-->
+                    <StackPanel Orientation="Horizontal" Margin="22, 2">
+                        <TextBlock Text="{lex:Loc Key=ROIName}" VerticalAlignment="Center" Margin="2 0"/>
+                        <ComboBox x:Name="cbRoiList" Width="130" Height="25" BorderThickness="0 0 0 1" Margin="8 0" 
+                                  ItemsSource="{Binding RoiList}" SelectedItem="{Binding Roi}" SelectedIndex="{Binding RoiIndex}"
+                                  DisplayMemberPath="roi_name" SelectionChanged="cbRoiList_SelectionChanged"/>
+                        <Button  Content="&#xf067;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 Command="{Binding AddCommand}" CommandParameter="AddRoiName" ToolTip="{lex:Loc Key=Add}"/>
+                        <Button Content="&#xf044;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                Command="{Binding AddCommand}" CommandParameter="EditRoiName" ToolTip="{lex:Loc Key=Edit}" />
+                        <Button  Content="&#xf1f8;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="2 0"
+                                 Command="{Binding AddCommand}" CommandParameter="DeleteRoiName" ToolTip="{lex:Loc Key=Delete}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <GridSplitter Grid.Column="1"/>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="2 4">
+                    <Button Content="{lex:Loc Key=Serialize}" x:Name="btnSerialize" HorizontalAlignment="Center" Margin="2 0" 
+                            Click="btnSerialize_Click"/>
+                    <Button Content="{lex:Loc Key=Deserialize}" x:Name="btnDeserialize" HorizontalAlignment="Center" Margin="2 0" 
+                            Click="btnDeserialize_Click"/>
+                    <Button Content="{lex:Loc Key=Load}" x:Name="btnLoadJson" HorizontalAlignment="Center" Margin="2 0" 
+                            Click="btnLoadJson_Click"/>
+                    <Button Content="{lex:Loc Key=Save}" x:Name="btnSaveJson" HorizontalAlignment="Center" Margin="2 0" 
+                            Click="btnSaveJson_Click"/>
+                </StackPanel>
+                <codecompletion:CodeTextEditor x:Name="JsonEditor" Grid.Row="1" Background="#ff252525" Foreground="White" ShowLineNumbers="True" 
+                                           FileName="Json" MaxHeight="750" FontFamily="Consolas"/>
+            </Grid>
+        </Grid>
+        <!--下方预留-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4 4">
+            <Button x:Name="btnConfirm" Content="{lex:Loc Key=SaveProject}" HorizontalAlignment="Center" Margin="4 0" 
+                            Command="{Binding HostCommand}" CommandParameter="SaveProject"/>
+            <Button x:Name="btnSave" Content="{lex:Loc Key=LoadProject}" HorizontalAlignment="Center" Margin="4 0" 
+                            Command="{Binding HostCommand}" CommandParameter="LoadProject"/>
+            <Button x:Name="btnCancel" Content="{lex:Loc Key=Exit}" HorizontalAlignment="Center" Margin="4 0" 
+                            Click="btnCancel_Click"/>
+            <TextBlock Text="{Binding Info}" VerticalAlignment="Center" Margin="4 0"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
+

@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cvt="clr-namespace:CatVision.Wpf.Converter">
+    <cvt:Bool2ColorConverter x:Key="Bool2ColorConverter" />
+    <cvt:FloatDivTwoConverter x:Key="FloatDivTwoConverter" />
+</ResourceDictionary>

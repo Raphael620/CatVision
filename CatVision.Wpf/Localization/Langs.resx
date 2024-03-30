@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddinPara" xml:space="preserve">
+    <value>AddinPara</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="AlgorithmScript" xml:space="preserve">
+    <value>AlgorithmScript</value>
+  </data>
+  <data name="Alias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="BaudRate" xml:space="preserve">
+    <value>BaudRate</value>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="CameraAddinPara" xml:space="preserve">
+    <value>CameraAddinPara</value>
+  </data>
+  <data name="CameraList" xml:space="preserve">
+    <value>CameraList</value>
+  </data>
+  <data name="CameraName" xml:space="preserve">
+    <value>CameraName</value>
+  </data>
+  <data name="CameraProvider" xml:space="preserve">
+    <value>CameraProvider</value>
+  </data>
+  <data name="CameraSet" xml:space="preserve">
+    <value>CameraSet</value>
+  </data>
+  <data name="CameraSN" xml:space="preserve">
+    <value>CameraSN</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ClearAlarm" xml:space="preserve">
+    <value>ClearAlarm</value>
+  </data>
+  <data name="CommunicationSet" xml:space="preserve">
+    <value>CommunicationSet</value>
+  </data>
+  <data name="Compile" xml:space="preserve">
+    <value>Compile</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmReset" xml:space="preserve">
+    <value>ConfirmReset</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Continuous" xml:space="preserve">
+    <value>Continuous</value>
+  </data>
+  <data name="CpuType" xml:space="preserve">
+    <value>CpuType</value>
+  </data>
+  <data name="CurrentFile" xml:space="preserve">
+    <value>CurrentFile</value>
+  </data>
+  <data name="CurrentSolution" xml:space="preserve">
+    <value>CurrentSolution</value>
+  </data>
+  <data name="CurrentUser" xml:space="preserve">
+    <value>CurrentUser</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DataBits" xml:space="preserve">
+    <value>DataBits</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Deserialize" xml:space="preserve">
+    <value>Deserialize</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Developer</value>
+  </data>
+  <data name="DeviceAlarm" xml:space="preserve">
+    <value>DeviceAlarm</value>
+  </data>
+  <data name="DeviceList" xml:space="preserve">
+    <value>DeviceList</value>
+  </data>
+  <data name="DeviceParam" xml:space="preserve">
+    <value>DeviceParam</value>
+  </data>
+  <data name="DeviceParam_AutoOpenCamera" xml:space="preserve">
+    <value>DeviceParam_AutoOpenCamera</value>
+  </data>
+  <data name="DeviceParam_Camera" xml:space="preserve">
+    <value>DeviceParam_Camera</value>
+  </data>
+  <data name="DeviceParam_DeviceParam" xml:space="preserve">
+    <value>DeviceParam_DeviceParam</value>
+  </data>
+  <data name="DeviceParam_Else" xml:space="preserve">
+    <value>DeviceParam_Else</value>
+  </data>
+  <data name="DeviceParam_GeneralParam" xml:space="preserve">
+    <value>DeviceParam_GeneralParam</value>
+  </data>
+  <data name="DeviceParam_new RoutedCommandRecipe" xml:space="preserve">
+    <value>DeviceParam_new RoutedCommandRecipe</value>
+  </data>
+  <data name="DeviceParam_Path" xml:space="preserve">
+    <value>DeviceParam_Path</value>
+  </data>
+  <data name="DeviceParam_ProcessParam" xml:space="preserve">
+    <value>DeviceParam_ProcessParam</value>
+  </data>
+  <data name="DeviceParam_Recipe" xml:space="preserve">
+    <value>DeviceParam_Recipe</value>
+  </data>
+  <data name="DeviceParam_SaveManufactureResult" xml:space="preserve">
+    <value>DeviceParam_SaveManufactureResult</value>
+  </data>
+  <data name="DeviceParam_UseCamera" xml:space="preserve">
+    <value>DeviceParam_UseCamera</value>
+  </data>
+  <data name="Dictionary" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconntect</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Dock_Curve" xml:space="preserve">
+    <value>Dock_Curve</value>
+  </data>
+  <data name="Dock_Data" xml:space="preserve">
+    <value>Dock_Data</value>
+  </data>
+  <data name="Dock_DeviceState" xml:space="preserve">
+    <value>Dock_DeviceState</value>
+  </data>
+  <data name="Dock_Load" xml:space="preserve">
+    <value>Dock_Load</value>
+  </data>
+  <data name="Dock_Log" xml:space="preserve">
+    <value>Dock_Log</value>
+  </data>
+  <data name="Dock_ManufactureParam" xml:space="preserve">
+    <value>Dock_ManufactureParam</value>
+  </data>
+  <data name="Dock_ModuleOut" xml:space="preserve">
+    <value>Dock_ModuleOut</value>
+  </data>
+  <data name="Dock_Process" xml:space="preserve">
+    <value>Dock_Process</value>
+  </data>
+  <data name="Dock_ProductionInfo" xml:space="preserve">
+    <value>Dock_ProductionInfo</value>
+  </data>
+  <data name="Dock_Reset" xml:space="preserve">
+    <value>Dock_Reset</value>
+  </data>
+  <data name="Dock_Save" xml:space="preserve">
+    <value>Dock_Save</value>
+  </data>
+  <data name="Dock_TemplateObject" xml:space="preserve">
+    <value>Dock_TemplateObject</value>
+  </data>
+  <data name="Dock_Tool" xml:space="preserve">
+    <value>Dock_Tool</value>
+  </data>
+  <data name="Dock_Vision" xml:space="preserve">
+    <value>Dock_Vision</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="ExpoTime" xml:space="preserve">
+    <value>ExpoTime</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="FinishSignal" xml:space="preserve">
+    <value>FinishSignal</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Gain</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="GlobalVar" xml:space="preserve">
+    <value>GlobalVar</value>
+  </data>
+  <data name="HardwareConfig" xml:space="preserve">
+    <value>HardwareConfig</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpDecomentNotFind" xml:space="preserve">
+    <value>HelpDecomentNotFind</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="InputStart" xml:space="preserve">
+    <value>InputStart</value>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>IO</value>
+  </data>
+  <data name="IOParam" xml:space="preserve">
+    <value>IOParam</value>
+  </data>
+  <data name="Ip" xml:space="preserve">
+    <value>Ip</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="LampGreen" xml:space="preserve">
+    <value>LampGreen</value>
+  </data>
+  <data name="LampRed" xml:space="preserve">
+    <value>LampRed</value>
+  </data>
+  <data name="LampYellow" xml:space="preserve">
+    <value>LampYellow</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="LoadProject" xml:space="preserve">
+    <value>LoadProject</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="LogDock" xml:space="preserve">
+    <value>LogDock</value>
+  </data>
+  <data name="Login_Account" xml:space="preserve">
+    <value>Login_Account</value>
+  </data>
+  <data name="Login_ChangePwd" xml:space="preserve">
+    <value>Login_ChangePwd</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Login_Login</value>
+  </data>
+  <data name="Login_Logout" xml:space="preserve">
+    <value>Login_Logout</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Login_Password</value>
+  </data>
+  <data name="Login_UserLogin" xml:space="preserve">
+    <value>Login_UserLogin</value>
+  </data>
+  <data name="LogView_Bottom" xml:space="preserve">
+    <value>LogView_Bottom</value>
+  </data>
+  <data name="LogView_Content" xml:space="preserve">
+    <value>LogView_Content</value>
+  </data>
+  <data name="LogView_Time" xml:space="preserve">
+    <value>LogView_Time</value>
+  </data>
+  <data name="LogView_Top" xml:space="preserve">
+    <value>LogView_Top</value>
+  </data>
+  <data name="LogView_Type" xml:space="preserve">
+    <value>LogView_Type</value>
+  </data>
+  <data name="MainView" xml:space="preserve">
+    <value>MainView</value>
+  </data>
+  <data name="Menu_About" xml:space="preserve">
+    <value>Menu_About</value>
+  </data>
+  <data name="Menu_Camera" xml:space="preserve">
+    <value>Menu_Camera</value>
+  </data>
+  <data name="Menu_Curve" xml:space="preserve">
+    <value>Menu_Curve</value>
+  </data>
+  <data name="Menu_DeviceParam" xml:space="preserve">
+    <value>Menu_DeviceParam</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>Menu_Edit</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>Menu_Help</value>
+  </data>
+  <data name="Menu_HelpDocument" xml:space="preserve">
+    <value>Menu_HelpDocument</value>
+  </data>
+  <data name="Menu_License" xml:space="preserve">
+    <value>Menu_License</value>
+  </data>
+  <data name="Menu_LoadDefaultLayout" xml:space="preserve">
+    <value>Menu_LoadDefaultLayout</value>
+  </data>
+  <data name="Menu_LoadLayout" xml:space="preserve">
+    <value>Menu_LoadLayout</value>
+  </data>
+  <data name="Menu_Log" xml:space="preserve">
+    <value>Menu_Log</value>
+  </data>
+  <data name="Menu_ManufatureParam" xml:space="preserve">
+    <value>Menu_ManufatureParam</value>
+  </data>
+  <data name="Menu_Open" xml:space="preserve">
+    <value>Menu_Open</value>
+  </data>
+  <data name="Menu_OpenFile" xml:space="preserve">
+    <value>Menu_OpenFile</value>
+  </data>
+  <data name="Menu_Param" xml:space="preserve">
+    <value>Menu_Param</value>
+  </data>
+  <data name="Menu_ProductionInfo" xml:space="preserve">
+    <value>Menu_ProductionInfo</value>
+  </data>
+  <data name="Menu_ReportQuery" xml:space="preserve">
+    <value>Menu_ReportQuery</value>
+  </data>
+  <data name="Menu_Save" xml:space="preserve">
+    <value>Menu_Save</value>
+  </data>
+  <data name="Menu_SaveFile" xml:space="preserve">
+    <value>Menu_SaveFile</value>
+  </data>
+  <data name="Menu_SaveLayout" xml:space="preserve">
+    <value>Menu_SaveLayout</value>
+  </data>
+  <data name="Menu_ScreenCapture" xml:space="preserve">
+    <value>Menu_ScreenCapture</value>
+  </data>
+  <data name="Menu_SystemConfig" xml:space="preserve">
+    <value>Menu_SystemConfig</value>
+  </data>
+  <data name="Menu_SystemParam" xml:space="preserve">
+    <value>Menu_SystemParam</value>
+  </data>
+  <data name="Menu_TemplateObject" xml:space="preserve">
+    <value>Menu_TemplateObject</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>Menu_Tools</value>
+  </data>
+  <data name="Menu_UserFeedback" xml:space="preserve">
+    <value>Menu_UserFeedback</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>Menu_View</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="MotionSet" xml:space="preserve">
+    <value>MotionSet</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewSolution" xml:space="preserve">
+    <value>NewSolution</value>
+  </data>
+  <data name="NullImage" xml:space="preserve">
+    <value>NullImage</value>
+  </data>
+  <data name="NullTypeOrMethod" xml:space="preserve">
+    <value>NullTypeOrMethod</value>
+  </data>
+  <data name="ObjectName" xml:space="preserve">
+    <value>ObjectName</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="OpenFile" xml:space="preserve">
+    <value>OpenFile</value>
+  </data>
+  <data name="OpenImage" xml:space="preserve">
+    <value>OpenImage</value>
+  </data>
+  <data name="Operate" xml:space="preserve">
+    <value>Operate</value>
+  </data>
+  <data name="Operator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="OperatorLoginSystem" xml:space="preserve">
+    <value>OperatorLoginSystem</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="OutputFinish" xml:space="preserve">
+    <value>OutputFinish</value>
+  </data>
+  <data name="Parameter_Setting" xml:space="preserve">
+    <value>Parameter_Setting</value>
+  </data>
+  <data name="ParaSetting" xml:space="preserve">
+    <value>ParaSetting</value>
+  </data>
+  <data name="Parity" xml:space="preserve">
+    <value>Parity</value>
+  </data>
+  <data name="PC_Ready" xml:space="preserve">
+    <value>PC_Ready</value>
+  </data>
+  <data name="PleaseLoginFirst" xml:space="preserve">
+    <value>PleaseLoginFirst</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Power" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="PowerDownLimit" xml:space="preserve">
+    <value>PowerDownLimit</value>
+  </data>
+  <data name="PowerParam" xml:space="preserve">
+    <value>PowerParam</value>
+  </data>
+  <data name="PowerPV" xml:space="preserve">
+    <value>PowerPV</value>
+  </data>
+  <data name="PowerUpLimit" xml:space="preserve">
+    <value>PowerUpLimit</value>
+  </data>
+  <data name="ProductAddinPara" xml:space="preserve">
+    <value>ProductAddinPara</value>
+  </data>
+  <data name="ProductionInfo_CapacityOfStatistical" xml:space="preserve">
+    <value>ProductionInfo_CapacityOfStatistical</value>
+  </data>
+  <data name="ProductionInfo_NGNum" xml:space="preserve">
+    <value>ProductionInfo_NGNum</value>
+  </data>
+  <data name="ProductionInfo_OKNum" xml:space="preserve">
+    <value>ProductionInfo_OKNum</value>
+  </data>
+  <data name="ProductionInfo_TotalNum" xml:space="preserve">
+    <value>ProductionInfo_TotalNum</value>
+  </data>
+  <data name="ProductionInfo_Yield" xml:space="preserve">
+    <value>ProductionInfo_Yield</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>ProductName</value>
+  </data>
+  <data name="ProductPara" xml:space="preserve">
+    <value>ProductPara</value>
+  </data>
+  <data name="ProjectInfoSet" xml:space="preserve">
+    <value>ProjectInfoSet</value>
+  </data>
+  <data name="Project_Close" xml:space="preserve">
+    <value>Project_Close</value>
+  </data>
+  <data name="Project_Config" xml:space="preserve">
+    <value>Project_Config</value>
+  </data>
+  <data name="Project_New" xml:space="preserve">
+    <value>Project_New</value>
+  </data>
+  <data name="Project_Open" xml:space="preserve">
+    <value>Project_Open</value>
+  </data>
+  <data name="Project_Save" xml:space="preserve">
+    <value>Project_Save</value>
+  </data>
+  <data name="Project_SaveAs" xml:space="preserve">
+    <value>Project_SaveAs</value>
+  </data>
+  <data name="QuickMode" xml:space="preserve">
+    <value>QuickMode</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="QuitSystem" xml:space="preserve">
+    <value>QuitSystem</value>
+  </data>
+  <data name="Rack" xml:space="preserve">
+    <value>Rack</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="Recieve" xml:space="preserve">
+    <value>Recieve</value>
+  </data>
+  <data name="Recipe" xml:space="preserve">
+    <value>Recipe</value>
+  </data>
+  <data name="Record" xml:space="preserve">
+    <value>Record</value>
+  </data>
+  <data name="RedLight" xml:space="preserve">
+    <value>RedLight</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveAll" xml:space="preserve">
+    <value>RemoveAll</value>
+  </data>
+  <data name="ReportQuery" xml:space="preserve">
+    <value>ReportQuery</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Result_NG" xml:space="preserve">
+    <value>Result_NG</value>
+  </data>
+  <data name="Result_OK" xml:space="preserve">
+    <value>Result_OK</value>
+  </data>
+  <data name="ROI" xml:space="preserve">
+    <value>ROI</value>
+  </data>
+  <data name="ROIName" xml:space="preserve">
+    <value>ROIName</value>
+  </data>
+  <data name="ROIType" xml:space="preserve">
+    <value>ROITpye</value>
+  </data>
+  <data name="RunAuto" xml:space="preserve">
+    <value>RunAuto</value>
+  </data>
+  <data name="RunCycle" xml:space="preserve">
+    <value>RunCycle</value>
+  </data>
+  <data name="RunOnce" xml:space="preserve">
+    <value>RunOnce</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveFile" xml:space="preserve">
+    <value>SaveFile</value>
+  </data>
+  <data name="SaveImage" xml:space="preserve">
+    <value>SaveImage</value>
+  </data>
+  <data name="SaveProject" xml:space="preserve">
+    <value>SaveProject</value>
+  </data>
+  <data name="ScreenCapture" xml:space="preserve">
+    <value>ScreenCapture</value>
+  </data>
+  <data name="SearchHelp" xml:space="preserve">
+    <value>SearchHelp</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>Serial</value>
+  </data>
+  <data name="Serial1" xml:space="preserve">
+    <value>Serial</value>
+  </data>
+  <data name="Serialize" xml:space="preserve">
+    <value>Serialize</value>
+  </data>
+  <data name="ServoDebug" xml:space="preserve">
+    <value>ServoDebug</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Siemens7" xml:space="preserve">
+    <value>Siemens7</value>
+  </data>
+  <data name="Siemens71" xml:space="preserve">
+    <value>Siemens7</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Slot" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="SN" xml:space="preserve">
+    <value>SN</value>
+  </data>
+  <data name="SoftwareIsExiting" xml:space="preserve">
+    <value>SoftwareIsExiting</value>
+  </data>
+  <data name="SoftwareStartupSucceeded" xml:space="preserve">
+    <value>SoftwareStartupSucceeded</value>
+  </data>
+  <data name="SoluctionAutoLoad" xml:space="preserve">
+    <value>SoluctionAutoLoad</value>
+  </data>
+  <data name="SoluctionAutoRun" xml:space="preserve">
+    <value>SoluctionAutoRun</value>
+  </data>
+  <data name="SoluctionPath" xml:space="preserve">
+    <value>SoluctionPath</value>
+  </data>
+  <data name="SolutionList" xml:space="preserve">
+    <value>SolutionList</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StartupSetting" xml:space="preserve">
+    <value>StartupSetting</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="StopBits" xml:space="preserve">
+    <value>StopBits</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="SystemConfig" xml:space="preserve">
+    <value>SystemConfig</value>
+  </data>
+  <data name="SystemParam_AutoLoadLayout" xml:space="preserve">
+    <value>SystemParam_AutoLoadLayout</value>
+  </data>
+  <data name="SystemParam_Basis" xml:space="preserve">
+    <value>SystemParam_Basis</value>
+  </data>
+  <data name="SystemParam_CompanyName" xml:space="preserve">
+    <value>SystemParam_CompanyName</value>
+  </data>
+  <data name="SystemParam_Language" xml:space="preserve">
+    <value>SystemParam_Language</value>
+  </data>
+  <data name="SystemParam_Path" xml:space="preserve">
+    <value>SystemParam_Path</value>
+  </data>
+  <data name="SystemParam_ProjectName" xml:space="preserve">
+    <value>SystemParam_ProjectName</value>
+  </data>
+  <data name="SystemParam_SoftwareIcon" xml:space="preserve">
+    <value>SystemParam_SoftwareIcon</value>
+  </data>
+  <data name="SystemParam_SoftwareSelfStarting" xml:space="preserve">
+    <value>SystemParam_SoftwareSelfStarting</value>
+  </data>
+  <data name="SystemParam_SoftwareVersion" xml:space="preserve">
+    <value>SystemParam_SoftwareVersion</value>
+  </data>
+  <data name="SystemParam_SystemParam" xml:space="preserve">
+    <value>SystemParam_SystemParam</value>
+  </data>
+  <data name="System_Setting" xml:space="preserve">
+    <value>System_Setting</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Trigger" xml:space="preserve">
+    <value>Trigger</value>
+  </data>
+  <data name="TriggerMode" xml:space="preserve">
+    <value>TriggerMode</value>
+  </data>
+  <data name="TriggerSet" xml:space="preserve">
+    <value>TriggerSet</value>
+  </data>
+  <data name="TriggerSource" xml:space="preserve">
+    <value>TriggerSource</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UIDesign" xml:space="preserve">
+    <value>UIDesign</value>
+  </data>
+  <data name="Unload" xml:space="preserve">
+    <value>Unload</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>UserLogin</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="View_Multi" xml:space="preserve">
+    <value>View_Multi</value>
+  </data>
+  <data name="View_ScreenShot" xml:space="preserve">
+    <value>View_ScreenShot</value>
+  </data>
+  <data name="View_Single" xml:space="preserve">
+    <value>View_Single</value>
+  </data>
+  <data name="View_Theme" xml:space="preserve">
+    <value>View_Theme</value>
+  </data>
+  <data name="Warn" xml:space="preserve">
+    <value>Warn</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Write</value>
+  </data>
+</root>

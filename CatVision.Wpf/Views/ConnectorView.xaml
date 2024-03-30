@@ -1,0 +1,325 @@
+﻿<mah:MetroWindow x:Class="CatVision.Wpf.Views.ConnectorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:CatVision.Wpf.Views"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="zh"
+        lex:LocalizeDictionary.OutputMissingKeys="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="CatVision.Wpf"
+        lex:ResxLocalizationProvider.DefaultDictionary="Langs"
+        xmlns:views="clr-namespace:CatVision.Wpf.Views"
+        xmlns:helper="clr-namespace:CatVision.Wpf.Helper"
+        xmlns:data="clr-namespace:CatVision.Wpf.Models.Data"
+        xmlns:cvt="clr-namespace:CatVision.Wpf.Converter"
+        x:Name="ConnView"
+           xmlns:vm="clr-namespace:CatVision.Wpf.ViewModel"
+        Closing="ConnView_Closing"
+        mc:Ignorable="d"
+        Height="650" Width="900">
+    <Window.DataContext>
+        <vm:ConnectorViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <cvt:Bool2VisibilityConverter x:Key="Bool2VisibilityConverter"/>
+            <cvt:Bool2ColorConverter x:Key="Bool2ColorConverter"/>
+            <cvt:FloatDivTwoConverter x:Key="FloatDivTwoConverter"/>
+            <data:UIConfig x:Key="uiConfig" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <TextBlock Text="&#xf287;" VerticalAlignment="Center" Margin="5 0" FontWeight="Light" FontFamily="{DynamicResource FontAwesone}" FontSize="16"/>
+            <TextBlock Text="{lex:Loc Key=CommunicationSet}" VerticalAlignment="Center" Margin="5 0" FontWeight="Light"/>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--通信列表和通信参数-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <GroupBox x:Name="gpDeviceList" Header="{lex:Loc Key=DeviceList}" Margin="2 2 2 2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5 2">
+                                <TextBlock Text="{lex:Loc Key=Type}" VerticalAlignment="Center"/>
+                                <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="5 0"
+                                          ItemsSource="{Binding DeviceTypeList}" SelectedItem="{Binding SelectedType}"/>
+                                <TextBlock Text="{lex:Loc Key=Name}" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding AddDevName}" Width="100"/>
+                                <Button  Content="&#xf067;" Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" 
+                                                 ToolTip="{lex:Loc Key=Add}" Command="{Binding AddDeviceCommand}" CommandParameter="Add"/>
+                                <Button  Content="&#xf1f8;"  Width="30" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" 
+                                                 ToolTip="{lex:Loc Key=Delete}" Command="{Binding AddDeviceCommand}" CommandParameter="Delete"/>
+                            </StackPanel>
+                            <DataGrid Grid.Row="2" AutoGenerateColumns="False" x:Name="dg" EnableColumnVirtualization="True"
+                                                  EnableRowVirtualization="True" VirtualizingPanel.IsVirtualizing="True"
+                                                  ItemsSource="{Binding ConnectorInfos}" 
+                                                  SelectedItem="{Binding SeletedConnectorInfo}"
+                                                  FontSize="12" RowHeaderWidth="20" SelectionUnit="FullRow"
+                                                  HeadersVisibility="Column" GridLinesVisibility="All"
+                                                  IsReadOnly="False" CanUserAddRows="False">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{lex:Loc Key=Name}" IsReadOnly="True" Width="60">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Text="{Binding DevInfo.DeviceName}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" IsReadOnly="True"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="{lex:Loc Key=Ip}" IsReadOnly="True" Width="120">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Text="{Binding ConnInfo.Ip}" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="{lex:Loc Key=Port}" IsReadOnly="True" Width="60">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Text="{Binding ConnInfo.Port}" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate> 
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="{lex:Loc Key=Connect}" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <mah:ToggleSwitch IsOn="{Binding DevInfo.IsConnected}"
+                                                    Margin="4 0" Command="{Binding DataContext.ConnectCommand, RelativeSource={RelativeSource AncestorType={x:Type mah:MetroWindow}}}" CommandParameter="Connect"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--<DataGridTemplateColumn Header="{lex:Loc Key=Modify}" IsReadOnly="True" Width="AUTO" MinWidth="90">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="{lex:Loc Key=Confirm}" Margin="2 1"
+                                                    Command="{Binding DataContext.ConnectCommand, ElementName=ConnView}" CommandParameter="Modify"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>-->
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Border>
+                <!--通信参数-->
+                <Border Grid.Row="1">
+                    <GroupBox Header="{lex:Loc Key=DeviceParam}" Margin="2 2 2 2">
+                        <TabControl>
+                            <TabItem Header="{lex:Loc Key=General}">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{lex:Loc Key=Ip}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <TextBox Text="{Binding SelectedIp}" Width="130" Margin="4 4"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{lex:Loc Key=Port}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <TextBox Text="{Binding SelectedPort}" Margin="4 4" Width="130"/>
+                                    </StackPanel>
+                                    <Button Content="{lex:Loc Key=Modify}" Margin="8 0" HorizontalAlignment="Left"
+                                            Command="{Binding ParamCommand}" CommandParameter="Modify"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="{lex:Loc Key=Siemens7}">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" Margin="4 4">
+                                        <TextBlock Text="{lex:Loc Key=CpuType}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="4 0"
+                                          ItemsSource="{Binding CpuTypeList}" SelectedItem="{Binding CpuType}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{lex:Loc Key=Rack}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <TextBox Text="{Binding Rack}" Width="130" Margin="4 4"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{lex:Loc Key=Slot}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <TextBox Text="{Binding Slot}" Margin="4 4" Width="130"/>
+                                    </StackPanel>
+                                    <Button Content="{lex:Loc Key=Confirm}" Margin="8 0" HorizontalAlignment="Left"
+                                            Command="{Binding ParamCommand}" CommandParameter="Confirm"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="{lex:Loc Key=Serial}">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" Margin="4 4">
+                                        <TextBlock Text="{lex:Loc Key=BaudRate}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="4 0"
+                                          ItemsSource="{Binding BaudRateList}" SelectedItem="{Binding BaudRate}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="4 4">
+                                        <TextBlock Text="{lex:Loc Key=DataBits}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="4 0"
+                                          ItemsSource="{Binding DataBitsList}" SelectedItem="{Binding DataBits}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="4 4">
+                                        <TextBlock Text="{lex:Loc Key=Parity}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="4 0"
+                                          ItemsSource="{Binding ParityList}" SelectedItem="{Binding Parity}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="4 4">
+                                        <TextBlock Text="{lex:Loc Key=StopBits}" Margin="4 4" Foreground="{Binding ElementName=gpDeviceList, Path=Foreground}"/>
+                                        <ComboBox Width="130" Height="25" BorderThickness="0 0 0 1" Margin="4 0"
+                                          ItemsSource="{Binding StopBitsList}" SelectedItem="{Binding StopBits}"/>
+                                    </StackPanel>
+                                    <Button Content="{lex:Loc Key=Confirm}" Margin="8 4" HorizontalAlignment="Left"
+                                            Command="{Binding ParamCommand}" CommandParameter="Confirm"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </GroupBox>
+                </Border>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch"/>
+            <!--收发列表和调试信息-->
+            <Grid Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <!--写入数据-->
+                    <Border Grid.Row="0">
+                        <GroupBox Header="{lex:Loc Key=Write}" Margin="2 2 2 2">
+                            <StackPanel Orientation="Vertical" Margin="2 2">
+                                <StackPanel Orientation="Horizontal" Margin="2 2" x:Name="dataSpWrite">
+                                    <Button Content="&#xf067;" Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Add}" Command="{Binding WriteCommand}" CommandParameter="Add"/>
+                                    <Button Content="&#xf1f8;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Delete}" Command="{Binding WriteCommand}" CommandParameter="Delete"/>
+                                    <Button IsEnabled="False" Content="&#xf044;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Edit}" Command="{Binding WriteCommand}" CommandParameter="Edit"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="2 2">
+                                    <TextBox Width="190" Text="{Binding SelectedValue}" Margin="6 2"/>
+                                    <Button Content="&#xf1d8;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="6 0"
+                                                 ToolTip="{lex:Loc Key=Write}" Command="{Binding WriteCommand}" CommandParameter="Write"/>
+                                </StackPanel>
+                                <DataGrid x:Name="writeDataGrid" AutoGenerateColumns="False"
+                                                  EnableColumnVirtualization="True" EnableRowVirtualization="True" VirtualizingPanel.IsVirtualizing="True"
+                                                  ItemsSource="{Binding WriteDataList}" SelectedItem="{Binding SelectedData}"
+                                                  FontSize="12" RowHeaderWidth="20" SelectionUnit="FullRow" HeadersVisibility="Column" GridLinesVisibility="All"
+                                                  IsReadOnly="False" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Address}" IsReadOnly="True" Width="auto">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding address}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Value}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding value}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Type}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding type}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Record}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding record}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </GroupBox>
+                    </Border>
+                    <!--读取数据-->
+                    <Border Grid.Row="1">
+                        <GroupBox Header="{lex:Loc Key=Read}" Margin="2 2 2 2">
+                            <StackPanel Orientation="Vertical" Margin="2 2">
+                                <StackPanel Orientation="Horizontal" Margin="2 2" x:Name="dataSpRead">
+                                    <Button Content="&#xf067;" Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Add}" Command="{Binding WriteCommand}" CommandParameter="AddRead"/>
+                                    <Button Content="&#xf1f8;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Delete}" Command="{Binding WriteCommand}" CommandParameter="DeleteRead"/>
+                                    <Button IsEnabled="False" Content="&#xf044;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Edit}" Command="{Binding WriteCommand}" CommandParameter="EditRead"/>
+                                    <Button Content="&#xf0e0;"  Width="60" Height="26" FontFamily="{DynamicResource FontAwesone}" FontSize="18" Margin="4 0"
+                                                 ToolTip="{lex:Loc Key=Read}" Command="{Binding WriteCommand}" CommandParameter="Read"/>
+                                </StackPanel>
+                                <!--<TextBox Width="300" Text="{Binding SelectedValue}" Margin="6 2"/>-->
+                                <DataGrid x:Name="readDataGrid" AutoGenerateColumns="False"
+                                                  EnableColumnVirtualization="True" EnableRowVirtualization="True" VirtualizingPanel.IsVirtualizing="True"
+                                                  ItemsSource="{Binding ReadDataList}" SelectedItem="{Binding SelectedData}"
+                                                  FontSize="12" RowHeaderWidth="20" SelectionUnit="FullRow" HeadersVisibility="Column" GridLinesVisibility="All"
+                                                  IsReadOnly="False" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Address}" IsReadOnly="True" Width="auto">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding address}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Value}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding value}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Type}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding type}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{lex:Loc Key=Record}" IsReadOnly="False" Width="*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding record}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </GroupBox>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--底部工程设置区-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4 4">
+            <Button x:Name="btnConfirm" Content="{lex:Loc Key=SaveProject}" HorizontalAlignment="Center" Margin="4 0" 
+                            Command="{Binding HostCommand}" CommandParameter="SaveProject"/>
+            <Button x:Name="btnSave" Content="{lex:Loc Key=LoadProject}" HorizontalAlignment="Center" Margin="4 0" 
+                            Command="{Binding HostCommand}" CommandParameter="LoadProject"/>
+            <Button x:Name="btnCancel" Content="{lex:Loc Key=Exit}" HorizontalAlignment="Center" Margin="4 0" 
+                            Click="btnCancel_Click"/>
+            <TextBlock Text="{Binding Info}" MinWidth="180" Height="30" Margin="30 0" FontSize="15" TextAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
+

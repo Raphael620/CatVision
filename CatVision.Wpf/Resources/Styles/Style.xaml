@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol" >
+    
+    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox.Win10}" >
+        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+    </Style>
+    <!--<Style TargetType="Menu">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <Style TargetType="MenuItem">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>-->
+    <Style TargetType="RadioButton" BasedOn="{StaticResource MahApps.Styles.RadioButton}">
+        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="5"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,57 @@
+<Application x:Class="CatVision.Wpf.App" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:local="clr-namespace:CatVision.Wpf" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+             StartupUri="MainWindow.xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d1p1:Ignorable="d" >
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <!-- HandyControl & MahApps.Metro-->
+        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDark.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml">
+        </ResourceDictionary>
+        <!-- Theme: Default : Dark.Steel or Light.Blue-->
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Steel.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Themes/HandyDark.xaml">
+        </ResourceDictionary>
+        <!-- Base -->
+        <!--<ResourceDictionary Source="Resources/Collection.xaml"/>-->
+        <!-- Collection -->
+        <ResourceDictionary>
+          <FontFamily x:Key="FontAwesone">
+                        pack://application:,,,/Resources/Fonts/#FontAwesome
+                    </FontFamily>
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Fonts/Icons.xaml">
+        </ResourceDictionary>
+        <!-- Controls-->
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/Style.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/ButtonStyle.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/TabControlStyle.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/MenuStyle.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/TreeViewStyle.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/TextBoxStyle.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/Converter.xaml">
+        </ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/Resources/Styles/BackgroundStyle.xaml">
+        </ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
